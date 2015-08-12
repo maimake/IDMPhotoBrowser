@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Menu.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @implementation AppDelegate
 
@@ -23,6 +24,10 @@
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    SDImageCache* cache = [SDImageCache sharedImageCache];
+    [cache clearMemory];
+    [cache clearDisk];
     
     return YES;
 }
